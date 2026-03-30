@@ -1,29 +1,45 @@
-# InfiCode AI Chatbot
+# AI Chatbot System (Laravel)
 
-InfiCode AI is a secure AI chatbot built using Laravel with authentication and API integration.
+A backend-driven AI chatbot system built using Laravel, integrating external AI APIs with secure authentication and real-time interaction.
 
-## Features
+## 🚀 Features
 
-- Secure login and registration using Laravel Breeze
-- Personalized AI greeting for logged-in users.
-- Real-time AI chat responses
-- Secure backend API integration
-- MVC architecture implementation
-- Clean and responsive interface
+- Secure authentication using Laravel (login & session management)
+- Integration with external AI API (Gemini) for real-time responses
+- Structured API request/response handling
+- Real-time chat interaction using JavaScript (Fetch API)
+- Backend validation and secure data handling
+- User-specific chat interaction based on authenticated sessions
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- Laravel
-- PHP
-- MySQL
-- Blade Template Engine
+- Laravel (PHP Framework)
+- MySQL (Database)
+- REST APIs
 - JavaScript (Fetch API)
-- REST API Integration
+- Gemini API (AI Integration)
 
-## How it works
+## ⚙️ How It Works
 
-User logs in → sends message → Laravel controller → AI API → response → displayed in chat UI.
+1. User authenticates via Laravel authentication system  
+2. User sends a message through the chat interface  
+3. Backend processes the request and sends it to the AI API  
+4. AI response is received and returned via structured API response  
+5. Frontend dynamically displays the response in real time  
 
-## Author
+## 📌 Key Focus Areas
 
-Aman
+- API integration and communication flow  
+- Authentication and session handling  
+- Backend architecture and validation  
+- Handling asynchronous request-response cycles  
+
+## 🔮 Future Improvements
+
+- Chat history persistence  
+- Image generation support using AI APIs  
+- Scalable architecture for multiple concurrent users  
+
+## 👤 Author
+
+Aman Singh  
