@@ -5,7 +5,7 @@ InfiCode AI is a secure AI chatbot built using Laravel with authentication and A
 ## Features
 
 - Secure login and registration using Laravel Breeze
-- Personalized AI greeting for logged-in users
+- Personalized AI greeting for logged-in users.
 - Real-time AI chat responses
 - Secure backend API integration
 - MVC architecture implementation
