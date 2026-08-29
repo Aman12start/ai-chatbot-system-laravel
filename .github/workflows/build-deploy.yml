@@ -1,0 +1,51 @@
+name: Build Laravel for InfinityFree
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_mysql, bcmath, gd, zip, curl
+          tools: composer
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Remove unnecessary files
+        run: |
+          rm -rf node_modules
+          rm -rf .git
+          rm -rf .github
+          rm -f Dockerfile
+          rm -f nginx.conf
+          rm -f .dockerignore
+
+      - name: Create deploy ZIP
+        run: zip -r infinityfree-deploy.zip . -x "infinityfree-deploy.zip"
+
+      - name: Upload deploy package
+        uses: actions/upload-artifact@v4
+        with:
+          name: infinityfree-deploy
+          path: infinityfree-deploy.zip
